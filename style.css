@@ -26,6 +26,7 @@ h1 {
   cursor: pointer;
 }
 
+
 .controls {
   margin: 10px;
 }
@@ -54,4 +55,3 @@ pre {
 .cell.type-3 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button.png"); }
 .cell.type-4 { background-color: blue; }
 .cell.type-5 { background-color: red; }
-
