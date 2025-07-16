@@ -1,0 +1,57 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #f0f0f0;
+  margin: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(30, 20px);
+  grid-template-rows: repeat(17, 20px);
+  margin: 0 auto 20px auto;
+  width: fit-content;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.controls {
+  margin: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+pre {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  max-width: 90%;
+  margin: 0 auto;
+  overflow-x: auto;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.cell.type-0 { background-color: white }
+.cell.type-1 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/factory.png"); }
+.cell.type-2 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/exit.png"); }
+.cell.type-3 { background-color: blue }
+/* .cell.type-4 { background-color: orange; } */
+/* .cell.type-5 { background-color: red; } */
+.cell.type-4 { background-color: red; }
