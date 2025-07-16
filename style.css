@@ -51,7 +51,7 @@ pre {
 .cell.type-0 { background-color: white }
 .cell.type-1 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/factory.png"); }
 .cell.type-2 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/exit.png"); }
-.cell.type-3 { background-color: blue }
-/* .cell.type-4 { background-color: orange; } */
-/* .cell.type-5 { background-color: red; } */
-.cell.type-4 { background-color: red; }
+.cell.type-3 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button.png"); }
+.cell.type-4 { background-color: blue; }
+.cell.type-5 { background-color: red; }
+
