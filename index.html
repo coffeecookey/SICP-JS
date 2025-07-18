@@ -8,13 +8,55 @@
 </head>
 <body>
   <h1>Portal Game Map Editor</h1>
+
+  <h2>Select Tile Type</h2>
+  <p> - Click on a tile type to select it</p>
+  <p> - Click on the grid to place that tile</p>
+<div class="tile-selector">
+  <button onclick="setActiveType(0)" class="tile-btn type-0" title="White"></button>
+  <button onclick="setActiveType(1)" class="tile-btn type-1" title="Factory"></button>
+  <button onclick="setActiveType(2)" class="tile-btn type-2" title="Exit"></button>
+  <button onclick="setActiveType(3)" class="tile-btn type-3" title="Card"></button>
+  <button onclick="setActiveType(4)" class="tile-btn type-4" title="Start"></button>
+  <button onclick="setActiveType(5)" class="tile-btn type-5" title="Mystery"></button>
+  <button onclick="setActiveType(6)" class="tile-btn type-6" title="Red Button"></button>
+  <button onclick="setActiveType(7)" class="tile-btn type-7" title="Blue Button"></button>
+  <button onclick="setActiveType(8)" class="tile-btn type-8" title="Green Button"></button>
+  <button onclick="setActiveType(9)" class="tile-btn type-9" title="Blue Door"></button>
+  <button onclick="setActiveType(10)" class="tile-btn type-10" title="Green Door"></button>
+  <button onclick="setActiveType(11)" class="tile-btn type-11" title="Red Door"></button>
+</div>
+
+<div class="editor-wrapper">
   <div id="grid"></div>
+  <div class="legend">
+    <h3>Legend</h3>
+    <ul>
+      <li><span class="legend-box type-0"></span> Empty / Floor</li>
+      <li><span class="legend-box type-1"></span> Factory Block</li>
+      <li><span class="legend-box type-2"></span> Exit Door</li>
+      <li><span class="legend-box type-3"></span> Key Card</li>
+      <li><span class="legend-box type-4"></span> Start Block</li>
+      <li><span class="legend-box type-5"></span> Mystery Box</li>
+      <li><span class="legend-box type-6"></span> Red Button</li>
+      <li><span class="legend-box type-7"></span> Blue Button</li>
+      <li><span class="legend-box type-8"></span> Green Button</li>
+      <li><span class="legend-box type-9"></span> Blue Door</li>
+      <li><span class="legend-box type-10"></span> Green Door</li>
+      <li><span class="legend-box type-11"></span> Red Door</li>
+    </ul>
+  </div>
+</div>
+
+
   <div class="controls">
     <button onclick="resetMap()">Reset Map</button>
     <button onclick="copyMap()">Copy Map</button>
   </div>
+
   <h2>Live Map Output</h2>
   <pre id="output"></pre>
+
   <script src="script.js"></script>
 </body>
 </html>
