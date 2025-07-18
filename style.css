@@ -5,7 +5,7 @@ body {
   margin: 20px;
 }
 
-h1 {
+h1, h2 {
   margin-bottom: 10px;
 }
 
@@ -26,8 +26,7 @@ h1 {
   cursor: pointer;
 }
 
-
-.controls {
+.controls, .tile-selector {
   margin: 10px;
 }
 
@@ -36,6 +35,13 @@ button {
   font-size: 16px;
   margin: 5px;
   cursor: pointer;
+}
+
+.tile-selector button {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  padding: 0;
 }
 
 pre {
@@ -52,6 +58,130 @@ pre {
 .cell.type-0 { background-color: white }
 .cell.type-1 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/factory.png"); }
 .cell.type-2 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/exit.png"); }
-.cell.type-3 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button.png"); }
-.cell.type-4 { background-color: blue; }
-.cell.type-5 { background-color: red; }
+.cell.type-3 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/card.png"); }
+.cell.type-4 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/startblock.png"); }
+.cell.type-5 { background-image: url("https://unity-academy.s3.ap-southeast-1.amazonaws.com/external_assets/mystery_box.png"); }
+.cell.type-6 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_red2.png"); }
+.cell.type-7 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_blue.png"); }
+.cell.type-8 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_green2.png"); }
+.cell.type-9 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_blue.png"); }
+.cell.type-10 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_green.png"); }
+.cell.type-11 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_red.png"); }
+
+.tile-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #999;
+  background-size: cover;
+  background-position: center;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.tile-btn.type-0 { background-color: white }
+.tile-btn.type-1 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/factory.png"); }
+.tile-btn.type-2 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/exit.png"); }
+.tile-btn.type-3 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/card.png"); }
+.tile-btn.type-4 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/startblock.png"); }
+.tile-btn.type-5 { background-image: url("https://unity-academy.s3.ap-southeast-1.amazonaws.com/external_assets/mystery_box.png"); }
+.tile-btn.type-6 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_red2.png"); }
+.tile-btn.type-7 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_blue.png"); }
+.tile-btn.type-8 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_green2.png"); }
+.tile-btn.type-9 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_blue.png"); }
+.tile-btn.type-10 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_green.png"); }
+.tile-btn.type-11 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_red.png"); }
+
+.legend {
+  text-align: left;
+  max-width: 400px;
+  margin: 20px auto;
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.legend h3 {
+  margin-top: 0;
+}
+
+.legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.legend-box {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid #aaa;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.legend-box.type-0 { background-color: white }
+.legend-box.type-1 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/factory.png"); }
+.legend-box.type-2 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/exit.png"); }
+.legend-box.type-3 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/card.png"); }
+.legend-box.type-4 { background-image: url("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/startblock.png"); }
+.legend-box.type-5 { background-image: url("https://unity-academy.s3.ap-southeast-1.amazonaws.com/external_assets/mystery_box.png"); }
+.legend-box.type-6 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_red2.png"); }
+.legend-box.type-7 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_blue.png"); }
+.legend-box.type-8 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/button_green2.png"); }
+.legend-box.type-9 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_blue.png"); }
+.legend-box.type-10 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_green.png"); }
+.legend-box.type-11 { background-image: url("https://raw.githubusercontent.com/Dualupa/button-door/main/door_red.png"); }
+
+.editor-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* makes it responsive */
+}
+
+.legend {
+  width: 200px;
+  text-align: left;
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.legend h3 {
+  margin-top: 0;
+}
+
+.legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.legend-box {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid #aaa;
+  background-size: cover;
+  background-position: center;
+}
