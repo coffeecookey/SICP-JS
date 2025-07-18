@@ -289,6 +289,9 @@ let portal_creation_mode = false;
 let teleport_cooldown = 0;
 let game_started = false;
 
+// Shooting sprite for portal mode
+let shooting_sprite = null;
+
 // Portal teleportation status tracking
 let player_in_blue_portal = false;
 let player_in_orange_portal = false;
@@ -342,6 +345,9 @@ const player = instantiate_sprite("https://raw.githubusercontent.com/coffeecooke
 const cube = instantiate_sprite("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/card.png");
 let inlet = null;
 let outlet = null;
+
+// Create shooting sprite (initially hidden)
+shooting_sprite = instantiate_sprite("https://raw.githubusercontent.com/coffeecookey/SICP-JS/main/Assets/reddot.png");
 
 // Camera
 const camera_target = get_main_camera_following_target();
@@ -874,6 +880,19 @@ const cube_start = (self) => {
     apply_rigidbody(self);
 };
 
+// Shooting sprite functions
+const shooting_sprite_start = (self) => {
+    set_scale(self, vector3(0.3, 0.3, 1));
+    apply_rigidbody(self, 1.0, 0.0, 0.0, true);
+    // Initially hide the shooting sprite
+    set_position(self, vector3(-100, -100, 0));
+};
+
+const shooting_sprite_update = (self) => {
+    // The shooting sprite will be positioned by the portal mode logic
+    // No special update logic needed here
+};
+
 // Reset to entrance
 const reset_to_entrance = () => {
     set_velocity(player, vector3(0, 0, 0));
@@ -882,6 +901,10 @@ const reset_to_entrance = () => {
     const cube_pos = find_cube_position(maps[current_level]);
     set_position(player, vector3(entrance_pos[0], entrance_pos[1] + 0.2, 0));  // Small height boost
     set_position(cube, vector3(cube_pos[0], cube_pos[1], 0));
+    
+    // Hide shooting sprite when resetting
+    set_position(shooting_sprite, vector3(-100, -100, 0));
+    portal_creation_mode = false;
     carrying_object = null;
     
     if (aiming_indicator !== null) {
@@ -1416,6 +1439,16 @@ const player_update = (self) => {
     
     if (get_key_down("E")) {
         portal_creation_mode = !portal_creation_mode;
+        
+        // Show/hide shooting sprite based on portal mode
+        if (portal_creation_mode) {
+            // Show shooting sprite at player position when entering portal mode
+            const player_pos = get_position(self);
+            set_position(shooting_sprite, vector3(get_x(player_pos), get_y(player_pos) + 0.5, 0));
+        } else {
+            // Hide shooting sprite when exiting portal mode
+            set_position(shooting_sprite, vector3(-100, -100, 0));
+        }
     }
     
     if (get_key_down("R")) {
@@ -1429,6 +1462,9 @@ const player_update = (self) => {
         }
         next_portal_is_blue = true;
         portal_creation_mode = false;
+        
+        // Hide shooting sprite when resetting portals
+        set_position(shooting_sprite, vector3(-100, -100, 0));
         
         player_in_blue_portal = false;
         player_in_orange_portal = false;
@@ -1571,6 +1607,9 @@ const player_update = (self) => {
             next_portal_is_blue = !next_portal_is_blue;
             portal_creation_mode = false;
             
+            // Hide shooting sprite when portal is successfully created
+            set_position(shooting_sprite, vector3(-100, -100, 0));
+            
             // Clear aiming indicator when portal is placed
             if (aiming_indicator !== null) {
                 destroy(aiming_indicator);
@@ -1658,6 +1697,8 @@ on_collision_enter(player, player_collision);
 
 set_start(bg_lab, bg_lab_start);
 set_start(cube, cube_start);
+set_start(shooting_sprite, shooting_sprite_start);
+set_update(shooting_sprite, shooting_sprite_update);
 
 const cube_pos = find_cube_position(current_map);
 set_position(cube, vector3(cube_pos[0], cube_pos[1], 0));
