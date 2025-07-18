@@ -1,8 +1,14 @@
 const rows = 17;
 const cols = 30;
+let activeType = 0;
+let map = [];
+
 const grid = document.getElementById('grid');
 const output = document.getElementById('output');
-let map = [];
+
+function setActiveType(type) {
+  activeType = type;
+}
 
 function createGrid() {
   map = [];
@@ -17,11 +23,10 @@ function createGrid() {
       cell.dataset.y = y;
 
       cell.addEventListener('click', () => {
-        let type = parseInt(cell.dataset.type);
-        type = (type + 1) % 7; // cycle through 0–6
-        cell.dataset.type = type;
-        cell.className = `cell type-${type}`;
-        map[y][x] = type;
+        const newType = activeType;
+        cell.classList.replace(`type-${cell.dataset.type}`, `type-${newType}`);
+        cell.dataset.type = newType;
+        map[y][x] = newType;
         updateOutput();
       });
 
@@ -48,5 +53,5 @@ function copyMap() {
     .catch(() => alert("Failed to copy"));
 }
 
-// Initialize
+// Initialize grid on page load
 createGrid();
